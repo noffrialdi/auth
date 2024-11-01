@@ -1,0 +1,15 @@
+.idea/
+vendor/
+.vscode/
+
+report.json
+coverage.out
+.scannerwork
+run-sonarcube.sh
+sonar-scanner
+test.go
+run-sonarcube.sh
+docs/docs.go
+docs/swagger.json
+docs/swagger.yaml
+config/files/main.development.yaml

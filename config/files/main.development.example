@@ -1,0 +1,16 @@
+Server:
+  Port: ":8006"
+  ConsumerPort: ":8005"
+  GracefulTimeout: 5s
+
+InternalAPI:
+  BasePath: "/crud/api"
+  APITimeout: 5
+  EnableSwagger: true
+
+Database:
+  MasterDSN: "root:root@tcp(localhost:3306)/crud?parseTime=true"
+  RetryInterval: 10
+  MaxIdleConn: 10
+  MaxConn: 10
+  ConnMaxLifetime: "9s"

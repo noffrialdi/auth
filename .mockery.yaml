@@ -1,0 +1,30 @@
+with-expecter: true
+recursive: true
+all: true
+packages:
+    github.com/noffrialdi/auth/internal/domain/repository:
+      config:
+        mockname: "{{.InterfaceName}}"
+        filename: "{{.InterfaceName}}.go"
+        outpkg: "mocks_domain"
+        dir: "./internal/domain/mocks_domain"
+    github.com/noffrialdi/auth/internal/usecases/interactor:
+      config:
+        mockname: "{{.InterfaceName}}"
+        filename: "{{.InterfaceName}}.go"
+        outpkg: "mocks_interactor"
+        dir: "./internal/usecases/interactor/mocks_interactor"
+    github.com/noffrialdi/auth/internal/interfaces/dao:
+      config:
+        mockname: "{{.InterfaceName}}"
+        filename: "{{.InterfaceName}}.go"
+        outpkg: "mocks_interface"
+        dir: "./internal/interfaces/mocks_interface"
+    github.com/noffrialdi/auth/internal/interfaces/txmanager:
+      config:
+        mockname: "{{.InterfaceName}}"
+        filename: "{{.InterfaceName}}.go"
+        outpkg: "mocks_interface"
+        dir: "./internal/interfaces/mocks_interface"
+  
+
