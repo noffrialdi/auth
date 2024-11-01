@@ -4,12 +4,13 @@ Server:
   GracefulTimeout: 5s
 
 InternalAPI:
-  BasePath: "/crud/api"
+  BasePath: "/auth/api"
   APITimeout: 5
   EnableSwagger: true
 
 Database:
-  MasterDSN: "root:root@tcp(localhost:3306)/crud?parseTime=true"
+  SlaveDSN: "root:passwd@tcp(localhost:3306)/auth?parseTime=true"
+  MasterDSN: "root:passwd@tcp(localhost:3306)/auth?parseTime=true"
   RetryInterval: 10
   MaxIdleConn: 10
   MaxConn: 10
