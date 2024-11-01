@@ -25,8 +25,74 @@ func (_m *UserIteractor) EXPECT() *UserIteractor_Expecter {
 	return &UserIteractor_Expecter{mock: &_m.Mock}
 }
 
+// Signin provides a mock function with given fields: ctx, req
+func (_m *UserIteractor) Signin(ctx context.Context, req *request.SignInRequest) (*entity.SignInResponse, int, error) {
+	ret := _m.Called(ctx, req)
+
+	if len(ret) == 0 {
+		panic("no return value specified for Signin")
+	}
+
+	var r0 *entity.SignInResponse
+	var r1 int
+	var r2 error
+	if rf, ok := ret.Get(0).(func(context.Context, *request.SignInRequest) (*entity.SignInResponse, int, error)); ok {
+		return rf(ctx, req)
+	}
+	if rf, ok := ret.Get(0).(func(context.Context, *request.SignInRequest) *entity.SignInResponse); ok {
+		r0 = rf(ctx, req)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*entity.SignInResponse)
+		}
+	}
+
+	if rf, ok := ret.Get(1).(func(context.Context, *request.SignInRequest) int); ok {
+		r1 = rf(ctx, req)
+	} else {
+		r1 = ret.Get(1).(int)
+	}
+
+	if rf, ok := ret.Get(2).(func(context.Context, *request.SignInRequest) error); ok {
+		r2 = rf(ctx, req)
+	} else {
+		r2 = ret.Error(2)
+	}
+
+	return r0, r1, r2
+}
+
+// UserIteractor_Signin_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Signin'
+type UserIteractor_Signin_Call struct {
+	*mock.Call
+}
+
+// Signin is a helper method to define mock.On call
+//   - ctx context.Context
+//   - req *request.SignInRequest
+func (_e *UserIteractor_Expecter) Signin(ctx interface{}, req interface{}) *UserIteractor_Signin_Call {
+	return &UserIteractor_Signin_Call{Call: _e.mock.On("Signin", ctx, req)}
+}
+
+func (_c *UserIteractor_Signin_Call) Run(run func(ctx context.Context, req *request.SignInRequest)) *UserIteractor_Signin_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		run(args[0].(context.Context), args[1].(*request.SignInRequest))
+	})
+	return _c
+}
+
+func (_c *UserIteractor_Signin_Call) Return(respone *entity.SignInResponse, statusCode int, err error) *UserIteractor_Signin_Call {
+	_c.Call.Return(respone, statusCode, err)
+	return _c
+}
+
+func (_c *UserIteractor_Signin_Call) RunAndReturn(run func(context.Context, *request.SignInRequest) (*entity.SignInResponse, int, error)) *UserIteractor_Signin_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // Signup provides a mock function with given fields: ctx, req
-func (_m *UserIteractor) Signup(ctx context.Context, req *request.SignUpRequest) (*entity.SignUpResponse, error) {
+func (_m *UserIteractor) Signup(ctx context.Context, req *request.SignUpRequest) (*entity.SignUpResponse, int, error) {
 	ret := _m.Called(ctx, req)
 
 	if len(ret) == 0 {
@@ -34,8 +100,9 @@ func (_m *UserIteractor) Signup(ctx context.Context, req *request.SignUpRequest)
 	}
 
 	var r0 *entity.SignUpResponse
-	var r1 error
-	if rf, ok := ret.Get(0).(func(context.Context, *request.SignUpRequest) (*entity.SignUpResponse, error)); ok {
+	var r1 int
+	var r2 error
+	if rf, ok := ret.Get(0).(func(context.Context, *request.SignUpRequest) (*entity.SignUpResponse, int, error)); ok {
 		return rf(ctx, req)
 	}
 	if rf, ok := ret.Get(0).(func(context.Context, *request.SignUpRequest) *entity.SignUpResponse); ok {
@@ -46,13 +113,19 @@ func (_m *UserIteractor) Signup(ctx context.Context, req *request.SignUpRequest)
 		}
 	}
 
-	if rf, ok := ret.Get(1).(func(context.Context, *request.SignUpRequest) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *request.SignUpRequest) int); ok {
 		r1 = rf(ctx, req)
 	} else {
-		r1 = ret.Error(1)
+		r1 = ret.Get(1).(int)
 	}
 
-	return r0, r1
+	if rf, ok := ret.Get(2).(func(context.Context, *request.SignUpRequest) error); ok {
+		r2 = rf(ctx, req)
+	} else {
+		r2 = ret.Error(2)
+	}
+
+	return r0, r1, r2
 }
 
 // UserIteractor_Signup_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Signup'
@@ -74,12 +147,12 @@ func (_c *UserIteractor_Signup_Call) Run(run func(ctx context.Context, req *requ
 	return _c
 }
 
-func (_c *UserIteractor_Signup_Call) Return(respone *entity.SignUpResponse, err error) *UserIteractor_Signup_Call {
-	_c.Call.Return(respone, err)
+func (_c *UserIteractor_Signup_Call) Return(respone *entity.SignUpResponse, statusCode int, err error) *UserIteractor_Signup_Call {
+	_c.Call.Return(respone, statusCode, err)
 	return _c
 }
 
-func (_c *UserIteractor_Signup_Call) RunAndReturn(run func(context.Context, *request.SignUpRequest) (*entity.SignUpResponse, error)) *UserIteractor_Signup_Call {
+func (_c *UserIteractor_Signup_Call) RunAndReturn(run func(context.Context, *request.SignUpRequest) (*entity.SignUpResponse, int, error)) *UserIteractor_Signup_Call {
 	_c.Call.Return(run)
 	return _c
 }
