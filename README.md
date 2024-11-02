@@ -13,4 +13,8 @@ Sign up &amp; Login
 3. create table user with ddl in folder sql/user.sql
 4. create config yaml in config/files/main.development.yaml (copy value main.development.example)
 
+#========= running ========#
+1. go main.go serve-http
+2. import postman Auth.postman_collection
+3. and running with postman
 
